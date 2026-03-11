@@ -7,3 +7,12 @@ function bg_all_thumbnails()
 
 add_action('after_setup_theme', 'bg_add_thumbnails');
 
+function bg_theme_menu_sidebar()
+{
+    register_nav_menus([
+        'main' => 'Menu principal',
+        'foot' => 'Menu Bas de Page'
+    ]);
+}
+
+add_action('init', 'bg_theme_menu_sidebar');
