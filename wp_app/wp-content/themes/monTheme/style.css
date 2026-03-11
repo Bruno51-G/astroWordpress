@@ -1,3 +1,58 @@
 /*
 Theme Name: Astro Pote
 */
+
+:root{
+    --light: #FFFFFF;
+    --dark: #000000;
+    --primary: #070435;
+    --secondary: #0080FF;
+    --gleyLight: #C2D3CD;
+    --greyMiddle: #AFBFC0;
+    --greyDark: #656857;
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.nojq{
+    margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./img/banniere.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.logo{
+    position: absolute;
+    width: 25rem;
+    height: auto;
+    left: 0;
+}
+
+.logoTitre{
+    color: var(--greyMiddle);
+    font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+    font-size: 10rem;
+    font-weight: bold;
+    -webkit-text-stroke: 5px var(--primary);
+    paint-order: stroke fill;
+}
