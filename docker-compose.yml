@@ -1,0 +1,31 @@
+name: astroWordpress
+volumes:
+  db_data_wp:
+services:
+  wordpress_db:
+    container_name: astroWordpress-db
+    image: mariadb:11.8.5
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data_wp:/var/lib/mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=db_wordpress_astro
+      - MYSQL_USER=username
+      - MYSQL_PASSWORD=azerty
+    ports: ['3314:3306']
+  wordpress:
+    container_name: astroWordpress-web
+    image: wordpress:6.9.1-php8.5-apache
+    ports: ['8090:80']
+    restart: unless-stopped
+    depends_on: ['wordpress_db']
+    environment:
+      - WORDPRESS_DB_HOST=wordpress_db
+      - WORDPRESS_DB_NAME=db_wordpress_astro
+      - WORDPRESS_DB_USER=username
+      - WORDPRESS_DB_PASSWORD=azerty
+    working_dir: /var/www/html
+    volumes:
+      - ./wp_app:/var/www/html
