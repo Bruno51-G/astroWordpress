@@ -7,7 +7,7 @@ function bg_all_thumbnails()
 
 add_action('after_setup_theme', 'bg_add_thumbnails');
 
-function bg_theme_menu_sidebar()
+function bg_theme_menu()
 {
     register_nav_menus([
         'main' => 'Menu principal',
@@ -15,4 +15,4 @@ function bg_theme_menu_sidebar()
     ]);
 }
 
-add_action('init', 'bg_theme_menu_sidebar');
+add_action('init', 'bg_theme_menu');
